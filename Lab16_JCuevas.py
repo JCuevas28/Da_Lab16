@@ -31,3 +31,15 @@ def plot_data(months, unemployment_rates):
     plt.legend()
     plt.show()
 
+def main():
+    """Main function to execute the reading and plotting of data."""
+    
+    current_dir = os.path.dirname(__file__)
+    file_name = os.path.join(current_dir, "OHRU.csv")
+
+    months, unemployment_rates = read_data(file_name)
+    plot_data(months, unemployment_rates)
+
+if __name__ == "__main__":
+    main()
+
