@@ -15,4 +15,19 @@ def read_data(file_name):
             months.append(row[0])  
             unemployment_rates.append(float(row[1]))  
 
-    return months, unemployment_rates 
+    return months, unemployment_rates  
+
+def plot_data(months, unemployment_rates):
+    """Generates and shows a line plot for unemployment rates."""
+    plt.figure(figsize=(10, 6))
+    plt.plot(months, unemployment_rates, linestyle='-', color='b', label="Unemployment Rate")
+    plt.title("Unemployment Rate Over Time")
+    plt.xlabel("Month")
+    plt.ylabel("Unemployment Rate (%)")
+    plt.xticks(rotation=45, ha='right')
+    plt.xticks(range(0, len(months), max(1, len(months)//10)))
+    plt.grid(True)
+    plt.tight_layout()
+    plt.legend()
+    plt.show()
+
